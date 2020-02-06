@@ -9,11 +9,9 @@ port=5000            # Porta que o Servidor esta
 udp= socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 orig= (host, port)
 udp.bind(orig)
-while True:
+while(1):
     msg, cliente = udp.recvfrom(1024)
     #print (cliente,"mensagem:", msg.decode('ascii'))
     msgDecriptada = funcoes.decriptografar(msg.decode('ascii'), chaveBinaria)
     print (cliente, msgDecriptada)
-    
-
 udp.close()
