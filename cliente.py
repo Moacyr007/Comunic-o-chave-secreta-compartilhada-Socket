@@ -1,6 +1,6 @@
 import funcoes
 import socket
-chave = "chavesecreta"
+chave = "chavesec"
 chaveBinaria = funcoes.convert2Bin(chave)
 
 HOST = '172.16.12.52' # Endereco IP do Servidor

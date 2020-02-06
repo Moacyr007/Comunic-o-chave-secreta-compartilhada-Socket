@@ -7,8 +7,20 @@ def xor(x, y):
             ans += "0"
     return ans
 
+# Defining BinarytoDecimal() function 
+
 def convert2Bin(texto):
     return " ".join(f"{ord(i):08b}" for i in texto)
+
+def convertBin2String(text):
+    binary_int = int(text, 2)
+    byte_number = binary_int.bit_length() + 7 // 8
+    binary_array = binary_int.to_bytes(byte_number, "big")
+    ascii_text = binary_array.decode()
+
+    return(ascii_text)
+
+   
 
 def criptografar(chave, chaveBinaria, arquivoBinario):
 

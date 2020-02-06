@@ -1,7 +1,7 @@
 import funcoes
 import socket
 
-chave = "chavesecreta"
+chave = "chavesec"
 chaveBinaria = funcoes.convert2Bin(chave)
 
 host='172.16.12.52'    # Endereco IP do Servidor
@@ -11,6 +11,9 @@ orig= (host, port)
 udp.bind(orig)
 while True:
     msg, cliente = udp.recvfrom(1024)
-    msgDecriptada = funcoes.decriptografar(msg, chaveBinaria)
-    print (cliente, msg)
+    #print (cliente,"mensagem:", msg.decode('ascii'))
+    msgDecriptada = funcoes.decriptografar(msg.decode('ascii'), chaveBinaria)
+    print (cliente, msgDecriptada)
+    
+
 udp.close()
