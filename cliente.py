@@ -3,7 +3,7 @@ import socket
 chave = "chavesecreta"
 chaveBinaria = funcoes.convert2Bin(chave)
 
-HOST = '192.168.207.134' # Endereco IP do Servidor
+HOST = '172.16.12.52' # Endereco IP do Servidor
 PORT = 5000 # Porta que o Servidor esta
 udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 dest = (HOST, PORT)
@@ -14,5 +14,5 @@ msg = str(input("Digite alguma mensagem\n"))
 while(msg != 'sair'):
     udp.sendto(msg.encode('utf-8'), dest)
     msg = input()
-    msg =  criptografar(chave, chaveBinaria, funcoes.convert2Bin(msg))
+    msg =  funcoes.criptografar(chave, chaveBinaria, funcoes.convert2Bin(msg))
 udp.close()
