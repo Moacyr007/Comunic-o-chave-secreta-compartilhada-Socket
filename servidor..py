@@ -13,7 +13,11 @@ while True:
     msg, cliente = udp.recvfrom(1024)
     #print (cliente,"mensagem:", msg.decode('ascii'))
     msgDecriptada = funcoes.decriptografar(msg.decode('ascii'), chaveBinaria)
+    
+    #print(type(msg)) #Bytes
+    #print(type(msg.decode('ascii'))) #str
+    
+    print(cliente,"mensagem cirptografada em ascii: ", (funcoes.convertBin2String(msg.decode('ascii'))))
+    print(cliente,"mensagem descriptografada: ", msgDecriptada, "\n\n")
 
-    print (cliente,"mensagem cirptografada em ascii: ", (funcoes.convertBin2String(msg.decode('ascii'))))
-    print (cliente,"mensagem descriptografada: ", msgDecriptada, "\n\n")
 udp.close()
